@@ -47,7 +47,7 @@ numberAmountSelector.addEventListener('input', function(event) {
 
 separatorSelector.addEventListener('input', function(event) {
     separatorValue = event.target.value;
-    console.log(`New separator value: ${separatorValue}`);
+    // console.log(`New separator value: ${separatorValue}`);
     separator = separatorValue
     updateGroups(groupAmount, numberAmount)
 });
