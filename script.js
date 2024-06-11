@@ -4,6 +4,10 @@ const groupAmountSelector = document.querySelector('#group-amount')
 const numberAmountSelector = document.querySelector('#number-amount')
 let groupAmount = 0
 let numberAmount = 0
+const inputSelectors = [
+    groupAmountSelector,
+    numberAmountSelector
+];
 
 groups.innerHTML = "";
 
@@ -13,14 +17,14 @@ function handleInputChange(event) {
     return parseInt(inputValue);
 }
 
-function updateGroups(groupAmount, numberAmount) {
+function updateGroups(groupAmount) {
     groups.innerHTML = groupAmount;
 }
 
-groupAmountSelector.addEventListener('input', function(event) {
-    value = handleInputChange(event); // Update the value
+inputSelectors.forEach(function(inputSelector) {
+    inputSelector.addEventListener('input', function(event) {
+        value = handleInputChange(event);
+        updateGroups(value)
+    });
 });
 
-numberAmountSelector.addEventListener('input', function(event) {
-    value = handleInputChange(event); // Update the value
-});
