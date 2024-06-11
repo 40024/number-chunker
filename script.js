@@ -4,10 +4,10 @@ const groupAmountSelector = document.querySelector('#group-amount')
 const numberAmountSelector = document.querySelector('#number-amount')
 let groupAmount = 0
 let numberAmount = 0
-const inputSelectors = [
-    groupAmountSelector,
-    numberAmountSelector
-];
+// const inputSelectors = [
+//     groupAmountSelector,
+//     numberAmountSelector
+// ];
 
 groups.innerHTML = "";
 
@@ -17,14 +17,27 @@ function handleInputChange(event) {
     return parseInt(inputValue);
 }
 
-function updateGroups(groupAmount) {
-    groups.innerHTML = groupAmount;
+function updateGroups(groupAmount, numberAmount) {
+    numbers = generateRandomNumbers(numberAmount)
+    groups.innerHTML = numbers;
 }
 
-inputSelectors.forEach(function(inputSelector) {
-    inputSelector.addEventListener('input', function(event) {
-        value = handleInputChange(event);
-        updateGroups(value)
-    });
+function generateRandomNumbers(count) {
+    const randomNumbers = [];
+    for (let i = 0; i < count; i++) {
+        const randomNumber = Math.floor(Math.random() * 10); // Generates a random number between 0 and 9
+        randomNumbers.push(randomNumber);
+    }
+    console.log(randomNumbers);
+    return randomNumbers;
+}
+
+groupAmountSelector.addEventListener('input', function(event) {
+    groupAmount = handleInputChange(event);
+    updateGroups(groupAmount, numberAmount)
 });
 
+numberAmountSelector.addEventListener('input', function(event) {
+    numberAmount = handleInputChange(event);
+    updateGroups(groupAmount, numberAmount)
+});
