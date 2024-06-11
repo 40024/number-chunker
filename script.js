@@ -5,7 +5,7 @@ const numberAmountSelector = document.querySelector('#number-amount')
 const separatorSelector = document.querySelector('#separator-selector')
 let groupAmount = 1
 let numberAmount = 0
-let separator = ", "
+let separator = ""
 
 groups.innerHTML = "";
 
