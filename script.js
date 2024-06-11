@@ -3,7 +3,7 @@ const groups = document.querySelector('#groups')
 const groupAmountSelector = document.querySelector('#group-amount')
 const numberAmountSelector = document.querySelector('#number-amount')
 const separatorSelector = document.querySelector('#separator-selector')
-let groupAmount = 0
+let groupAmount = 1
 let numberAmount = 0
 let separator = ", "
 
@@ -21,6 +21,7 @@ function updateGroups(groupAmount, numberAmount) {
         const numbers = generateRandomNumbers(numberAmount);
         const groupElement = document.createElement('div');
         groupElement.textContent = numbers.join(separator); // Display the random numbers as a comma-separated list
+        groupElement.classList.add('center'); // Add a class for centering
         groups.appendChild(groupElement); // Append the group to the container
     }
 }
